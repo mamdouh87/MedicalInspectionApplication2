@@ -27,6 +27,90 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                    <li>
+                        <a class="dropdown-item" routerLink="persons" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.persons">Persons</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="medical-insepction-requests" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.medicalInsepctionRequests">Medical Insepction Requests</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="request-biometric-data" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.requestBiometricData">Request Biometric Data</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="abdominal-inseption" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.abdominalInseption">Abdominal Inseption</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="ophthalmic-inspection" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.ophthalmicInspection">Ophthalmic Inspection</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="medical-condition" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.medicalCondition">Medical Condition</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="request-status" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.requestStatus">Request Status</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="inspection-type" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.inspectionType">Inspection Type</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="inspection-result" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.inspectionResult">Inspection Result</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="traffic-units" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.trafficUnits">Traffic Units</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="country" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.country">Country</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="transaction-type" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.transactionType">Transaction Type</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="license-category" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.licenseCategory">License Category</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="inspection-requirement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.inspectionRequirement">Inspection Requirement</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

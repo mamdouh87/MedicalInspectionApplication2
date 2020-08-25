@@ -1,0 +1,46 @@
+{
+  "name": "OphthalmicInspection",
+  "fields": [
+    {
+      "fieldName": "rigthEye",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "leftEye",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "doctorComments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "medicalCondition",
+      "otherEntityRelationshipName": "ophthalmicInspection",
+      "relationshipName": "medicalCondition",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "inspectionResult",
+      "otherEntityRelationshipName": "ophthalmicInspection",
+      "relationshipName": "inspectionResult",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200825162000",
+  "entityTableName": "ophthalmic_inspection",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,26 @@
+{
+  "medicalInspectionApplicationApp": {
+    "ophthalmicInspection": {
+      "home": {
+        "title": "Ophthalmic Inspections",
+        "createLabel": "Create a new Ophthalmic Inspection",
+        "createOrEditLabel": "Create or edit a Ophthalmic Inspection",
+        "notFound": "No Ophthalmic Inspections found"
+      },
+      "created": "A new Ophthalmic Inspection is created with identifier {{ param }}",
+      "updated": "A Ophthalmic Inspection is updated with identifier {{ param }}",
+      "deleted": "A Ophthalmic Inspection is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ophthalmic Inspection {{ id }}?"
+      },
+      "detail": {
+        "title": "Ophthalmic Inspection"
+      },
+      "rigthEye": "Rigth Eye",
+      "leftEye": "Left Eye",
+      "doctorComments": "Doctor Comments",
+      "medicalCondition": "Medical Condition",
+      "inspectionResult": "Inspection Result"
+    }
+  }
+}

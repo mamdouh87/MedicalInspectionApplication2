@@ -1,0 +1,22 @@
+{
+  "medicalInspectionApplicationApp": {
+    "requestBiometricData": {
+      "home": {
+        "title": "Request Biometric Data",
+        "createLabel": "Create a new Request Biometric Data",
+        "createOrEditLabel": "Create or edit a Request Biometric Data",
+        "notFound": "No Request Biometric Data found"
+      },
+      "created": "A new Request Biometric Data is created with identifier {{ param }}",
+      "updated": "A Request Biometric Data is updated with identifier {{ param }}",
+      "deleted": "A Request Biometric Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Request Biometric Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Request Biometric Data"
+      },
+      "image": "Image"
+    }
+  }
+}

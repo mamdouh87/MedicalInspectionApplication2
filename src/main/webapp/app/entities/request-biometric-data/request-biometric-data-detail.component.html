@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="requestBiometricData">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.requestBiometricData.detail.title">Request Biometric Data</span> {{ requestBiometricData.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.requestBiometricData.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="requestBiometricData.image">
+                        <a (click)="openFile(requestBiometricData.imageContentType, requestBiometricData.image)">
+                            <img [src]="'data:' + requestBiometricData.imageContentType + ';base64,' + requestBiometricData.image" style="max-width: 100%;" alt="requestBiometricData image"/>
+                        </a>
+                        {{ requestBiometricData.imageContentType }}, {{ byteSize(requestBiometricData.image) }}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/request-biometric-data', requestBiometricData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

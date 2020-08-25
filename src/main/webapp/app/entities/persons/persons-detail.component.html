@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persons">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.persons.detail.title">Persons</span> {{ persons.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{ persons.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ persons.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.middleName">Middle Name</span></dt>
+                <dd>
+                    <span>{{ persons.middleName }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.familyName">Family Name</span></dt>
+                <dd>
+                    <span>{{ persons.familyName }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.fullName">Full Name</span></dt>
+                <dd>
+                    <span>{{ persons.fullName }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.birthDate">Birth Date</span></dt>
+                <dd>
+                    <span>{{ persons.birthDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.nationalId">National Id</span></dt>
+                <dd>
+                    <span>{{ persons.nationalId }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.passportNumber">Passport Number</span></dt>
+                <dd>
+                    <span>{{ persons.passportNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.persons.passportIssueCountry">Passport Issue Country</span></dt>
+                <dd>
+                    <div *ngIf="persons.passportIssueCountryId">
+                        <a [routerLink]="['/country', persons.passportIssueCountryId, 'view']">{{ persons.passportIssueCountryId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persons', persons.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

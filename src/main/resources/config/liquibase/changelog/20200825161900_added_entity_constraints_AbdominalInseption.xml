@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity AbdominalInseption.
+    -->
+    <changeSet id="20200825161900-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="medical_condition_id"
+                                 baseTableName="abdominal_inseption"
+                                 constraintName="fk_abdominal_inseption_medical_condition_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_condition"/>
+
+        <addForeignKeyConstraint baseColumnNames="inspection_result_id"
+                                 baseTableName="abdominal_inseption"
+                                 constraintName="fk_abdominal_inseption_inspection_result_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inspection_result"/>
+
+    </changeSet>
+</databaseChangeLog>

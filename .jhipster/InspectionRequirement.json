@@ -1,0 +1,42 @@
+{
+  "name": "InspectionRequirement",
+  "fields": [
+    {
+      "fieldName": "nameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nameAr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "order",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "medicalInsepctionRequests",
+      "otherEntityRelationshipName": "requirements",
+      "relationshipName": "requests",
+      "otherEntityField": "id",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200825162900",
+  "entityTableName": "inspection_requirement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

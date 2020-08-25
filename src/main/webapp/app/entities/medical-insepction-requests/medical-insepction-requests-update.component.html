@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medical-insepction-requests-heading" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.home.createOrEditLabel">Create or edit a Medical Insepction Requests</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.requestNumber" for="field_requestNumber">Request Number</label>
+                    <input type="text" class="form-control" name="requestNumber" id="field_requestNumber"
+                           formControlName="requestNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.exported" for="field_exported">Exported</label>
+                    <input type="checkbox" class="form-control" name="exported" id="field_exported"
+                           formControlName="exported"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.abdominalInseption" for="field_abdominalInseption">Abdominal Inseption</label>
+                    <select class="form-control" id="field_abdominalInseption" name="abdominalInseption" formControlName="abdominalInseptionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="abdominalInseptionOption.id" *ngFor="let abdominalInseptionOption of abdominalinseptions; trackBy: trackById">{{ abdominalInseptionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.ophthalmicInspection" for="field_ophthalmicInspection">Ophthalmic Inspection</label>
+                    <select class="form-control" id="field_ophthalmicInspection" name="ophthalmicInspection" formControlName="ophthalmicInspectionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ophthalmicInspectionOption.id" *ngFor="let ophthalmicInspectionOption of ophthalmicinspections; trackBy: trackById">{{ ophthalmicInspectionOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.person" for="field_person">Person</label>
+                    <select class="form-control" id="field_person" name="person" formControlName="personId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="personsOption.id" *ngFor="let personsOption of people; trackBy: trackById">{{ personsOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.biometricdata" for="field_biometricdata">Biometricdata</label>
+                    <select class="form-control" id="field_biometricdata" name="biometricdata" formControlName="biometricdataId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requestBiometricDataOption.id" *ngFor="let requestBiometricDataOption of biometricdata; trackBy: trackById">{{ requestBiometricDataOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.licenseCategory" for="field_licenseCategory">License Category</label>
+                    <select class="form-control" id="field_licenseCategory" name="licenseCategory" formControlName="licenseCategoryId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="licenseCategoryOption.id" *ngFor="let licenseCategoryOption of licensecategories; trackBy: trackById">{{ licenseCategoryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.transacionType" for="field_transacionType">Transacion Type</label>
+                    <select class="form-control" id="field_transacionType" name="transacionType" formControlName="transacionTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="transactionTypeOption.id" *ngFor="let transactionTypeOption of transaciontypes; trackBy: trackById">{{ transactionTypeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.trafficUnit" for="field_trafficUnit">Traffic Unit</label>
+                    <select class="form-control" id="field_trafficUnit" name="trafficUnit" formControlName="trafficUnitId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trafficUnitsOption.id" *ngFor="let trafficUnitsOption of trafficunits; trackBy: trackById">{{ trafficUnitsOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.status" for="field_status">Status</label>
+                    <select class="form-control" id="field_status" name="status" formControlName="statusId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requestStatusOption.id" *ngFor="let requestStatusOption of statuses; trackBy: trackById">{{ requestStatusOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.requirements" for="field_requirements">Requirements</label>
+                    <select class="form-control" id="field_requirements" multiple name="requirements" formControlName="requirements">
+                        <option [ngValue]="getSelected(editForm.get('requirements')!.value, inspectionRequirementOption)" *ngFor="let inspectionRequirementOption of inspectionrequirements; trackBy: trackById">{{ inspectionRequirementOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

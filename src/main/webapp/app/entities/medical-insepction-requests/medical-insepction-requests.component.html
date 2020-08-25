@@ -1,0 +1,121 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.home.title">Medical Insepction Requests</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medical-insepction-requests" [routerLink]="['/medical-insepction-requests/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.home.createLabel">
+            Create a new Medical Insepction Requests
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="medicalInsepctionRequests?.length === 0">
+        <span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.home.notFound">No medicalInsepctionRequests found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="medicalInsepctionRequests && medicalInsepctionRequests.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="requestNumber"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.requestNumber">Request Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="exported"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.exported">Exported</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="abdominalInseptionId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.abdominalInseption">Abdominal Inseption</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ophthalmicInspectionId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.ophthalmicInspection">Ophthalmic Inspection</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="personId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.person">Person</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="biometricdataId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.biometricdata">Biometricdata</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="licenseCategoryId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.licenseCategory">License Category</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="transacionTypeId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.transacionType">Transacion Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="trafficUnitId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.trafficUnit">Traffic Unit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="statusId"><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let medicalInsepctionRequests of medicalInsepctionRequests ;trackBy: trackId">
+                    <td><a [routerLink]="['/medical-insepction-requests', medicalInsepctionRequests.id, 'view']">{{ medicalInsepctionRequests.id }}</a></td>
+                    <td>{{ medicalInsepctionRequests.requestNumber }}</td>
+                    <td>{{ medicalInsepctionRequests.exported }}</td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.abdominalInseptionId">
+                            <a [routerLink]="['/abdominal-inseption', medicalInsepctionRequests.abdominalInseptionId , 'view']" >{{ medicalInsepctionRequests.abdominalInseptionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.ophthalmicInspectionId">
+                            <a [routerLink]="['/ophthalmic-inspection', medicalInsepctionRequests.ophthalmicInspectionId , 'view']" >{{ medicalInsepctionRequests.ophthalmicInspectionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.personId">
+                            <a [routerLink]="['/persons', medicalInsepctionRequests.personId , 'view']" >{{ medicalInsepctionRequests.personId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.biometricdataId">
+                            <a [routerLink]="['/request-biometric-data', medicalInsepctionRequests.biometricdataId , 'view']" >{{ medicalInsepctionRequests.biometricdataId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.licenseCategoryId">
+                            <a [routerLink]="['/license-category', medicalInsepctionRequests.licenseCategoryId , 'view']" >{{ medicalInsepctionRequests.licenseCategoryId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.transacionTypeId">
+                            <a [routerLink]="['/transaction-type', medicalInsepctionRequests.transacionTypeId , 'view']" >{{ medicalInsepctionRequests.transacionTypeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.trafficUnitId">
+                            <a [routerLink]="['/traffic-units', medicalInsepctionRequests.trafficUnitId , 'view']" >{{ medicalInsepctionRequests.trafficUnitId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="medicalInsepctionRequests.statusId">
+                            <a [routerLink]="['/request-status', medicalInsepctionRequests.statusId , 'view']" >{{ medicalInsepctionRequests.statusId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/medical-insepction-requests', medicalInsepctionRequests.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/medical-insepction-requests', medicalInsepctionRequests.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(medicalInsepctionRequests)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="medicalInsepctionRequests && medicalInsepctionRequests.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ophthalmicInspection">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.detail.title">Ophthalmic Inspection</span> {{ ophthalmicInspection.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.rigthEye">Rigth Eye</span></dt>
+                <dd>
+                    <span>{{ ophthalmicInspection.rigthEye }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.leftEye">Left Eye</span></dt>
+                <dd>
+                    <span>{{ ophthalmicInspection.leftEye }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.doctorComments">Doctor Comments</span></dt>
+                <dd>
+                    <span>{{ ophthalmicInspection.doctorComments }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.medicalCondition">Medical Condition</span></dt>
+                <dd>
+                    <div *ngIf="ophthalmicInspection.medicalConditionId">
+                        <a [routerLink]="['/medical-condition', ophthalmicInspection.medicalConditionId, 'view']">{{ ophthalmicInspection.medicalConditionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.inspectionResult">Inspection Result</span></dt>
+                <dd>
+                    <div *ngIf="ophthalmicInspection.inspectionResultId">
+                        <a [routerLink]="['/inspection-result', ophthalmicInspection.inspectionResultId, 'view']">{{ ophthalmicInspection.inspectionResultId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ophthalmic-inspection', ophthalmicInspection.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

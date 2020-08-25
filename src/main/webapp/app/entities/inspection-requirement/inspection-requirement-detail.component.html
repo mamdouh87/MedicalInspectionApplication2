@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inspectionRequirement">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.inspectionRequirement.detail.title">Inspection Requirement</span> {{ inspectionRequirement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionRequirement.nameEn">Name En</span></dt>
+                <dd>
+                    <span>{{ inspectionRequirement.nameEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionRequirement.nameAr">Name Ar</span></dt>
+                <dd>
+                    <span>{{ inspectionRequirement.nameAr }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionRequirement.code">Code</span></dt>
+                <dd>
+                    <span>{{ inspectionRequirement.code }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionRequirement.order">Order</span></dt>
+                <dd>
+                    <span>{{ inspectionRequirement.order }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inspection-requirement', inspectionRequirement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

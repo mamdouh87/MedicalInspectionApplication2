@@ -1,0 +1,24 @@
+{
+  "medicalInspectionApplicationApp": {
+    "medicalCondition": {
+      "home": {
+        "title": "Medical Conditions",
+        "createLabel": "Create a new Medical Condition",
+        "createOrEditLabel": "Create or edit a Medical Condition",
+        "notFound": "No Medical Conditions found"
+      },
+      "created": "A new Medical Condition is created with identifier {{ param }}",
+      "updated": "A Medical Condition is updated with identifier {{ param }}",
+      "deleted": "A Medical Condition is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Condition {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Condition"
+      },
+      "conditionNameEn": "Condition Name En",
+      "conditionNameAr": "Condition Name Ar",
+      "inspectionType": "Inspection Type"
+    }
+  }
+}
