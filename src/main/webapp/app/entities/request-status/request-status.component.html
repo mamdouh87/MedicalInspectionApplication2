@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="medicalInspectionApplicationApp.requestStatus.home.title">Request Statuses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-request-status" [routerLink]="['/request-status/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="medicalInspectionApplicationApp.requestStatus.home.createLabel">
+            Create a new Request Status
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="requestStatuses?.length === 0">
+        <span jhiTranslate="medicalInspectionApplicationApp.requestStatus.home.notFound">No requestStatuses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="requestStatuses && requestStatuses.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nameEn"><span jhiTranslate="medicalInspectionApplicationApp.requestStatus.nameEn">Name En</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nameAr"><span jhiTranslate="medicalInspectionApplicationApp.requestStatus.nameAr">Name Ar</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="code"><span jhiTranslate="medicalInspectionApplicationApp.requestStatus.code">Code</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let requestStatus of requestStatuses ;trackBy: trackId">
+                    <td><a [routerLink]="['/request-status', requestStatus.id, 'view']">{{ requestStatus.id }}</a></td>
+                    <td>{{ requestStatus.nameEn }}</td>
+                    <td>{{ requestStatus.nameAr }}</td>
+                    <td>{{ requestStatus.code }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/request-status', requestStatus.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/request-status', requestStatus.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(requestStatus)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="requestStatuses && requestStatuses.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

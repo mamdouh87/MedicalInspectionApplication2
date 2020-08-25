@@ -1,0 +1,24 @@
+{
+  "medicalInspectionApplicationApp": {
+    "licenseCategory": {
+      "home": {
+        "title": "License Categories",
+        "createLabel": "Create a new License Category",
+        "createOrEditLabel": "Create or edit a License Category",
+        "notFound": "No License Categories found"
+      },
+      "created": "A new License Category is created with identifier {{ param }}",
+      "updated": "A License Category is updated with identifier {{ param }}",
+      "deleted": "A License Category is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete License Category {{ id }}?"
+      },
+      "detail": {
+        "title": "License Category"
+      },
+      "nameEn": "Name En",
+      "nameAr": "Name Ar",
+      "code": "Code"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "MedicalCondition",
+  "fields": [
+    {
+      "fieldName": "conditionNameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "conditionNameAr",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "inspectionType",
+      "otherEntityRelationshipName": "medicalCondition",
+      "relationshipName": "inspectionType",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200825162100",
+  "entityTableName": "medical_condition",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,25 @@
+{
+  "medicalInspectionApplicationApp": {
+    "abdominalInseption": {
+      "home": {
+        "title": "Abdominal Inseptions",
+        "createLabel": "Create a new Abdominal Inseption",
+        "createOrEditLabel": "Create or edit a Abdominal Inseption",
+        "notFound": "No Abdominal Inseptions found"
+      },
+      "created": "A new Abdominal Inseption is created with identifier {{ param }}",
+      "updated": "A Abdominal Inseption is updated with identifier {{ param }}",
+      "deleted": "A Abdominal Inseption is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Abdominal Inseption {{ id }}?"
+      },
+      "detail": {
+        "title": "Abdominal Inseption"
+      },
+      "bloodGroup": "Blood Group",
+      "doctorComments": "Doctor Comments",
+      "medicalCondition": "Medical Condition",
+      "inspectionResult": "Inspection Result"
+    }
+  }
+}

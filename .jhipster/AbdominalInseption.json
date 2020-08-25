@@ -1,0 +1,42 @@
+{
+  "name": "AbdominalInseption",
+  "fields": [
+    {
+      "fieldName": "bloodGroup",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "doctorComments",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "medicalCondition",
+      "otherEntityRelationshipName": "abdominalInseption",
+      "relationshipName": "medicalCondition",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "inspectionResult",
+      "otherEntityRelationshipName": "abdominalInseption",
+      "relationshipName": "inspectionResult",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200825161900",
+  "entityTableName": "abdominal_inseption",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

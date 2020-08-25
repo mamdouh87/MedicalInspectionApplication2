@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.home.title">Ophthalmic Inspections</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ophthalmic-inspection" [routerLink]="['/ophthalmic-inspection/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.home.createLabel">
+            Create a new Ophthalmic Inspection
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="ophthalmicInspections?.length === 0">
+        <span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.home.notFound">No ophthalmicInspections found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="ophthalmicInspections && ophthalmicInspections.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="rigthEye"><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.rigthEye">Rigth Eye</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="leftEye"><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.leftEye">Left Eye</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doctorComments"><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.doctorComments">Doctor Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalConditionId"><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.medicalCondition">Medical Condition</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inspectionResultId"><span jhiTranslate="medicalInspectionApplicationApp.ophthalmicInspection.inspectionResult">Inspection Result</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ophthalmicInspection of ophthalmicInspections ;trackBy: trackId">
+                    <td><a [routerLink]="['/ophthalmic-inspection', ophthalmicInspection.id, 'view']">{{ ophthalmicInspection.id }}</a></td>
+                    <td>{{ ophthalmicInspection.rigthEye }}</td>
+                    <td>{{ ophthalmicInspection.leftEye }}</td>
+                    <td>{{ ophthalmicInspection.doctorComments }}</td>
+                    <td>
+                        <div *ngIf="ophthalmicInspection.medicalConditionId">
+                            <a [routerLink]="['/medical-condition', ophthalmicInspection.medicalConditionId , 'view']" >{{ ophthalmicInspection.medicalConditionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="ophthalmicInspection.inspectionResultId">
+                            <a [routerLink]="['/inspection-result', ophthalmicInspection.inspectionResultId , 'view']" >{{ ophthalmicInspection.inspectionResultId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/ophthalmic-inspection', ophthalmicInspection.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/ophthalmic-inspection', ophthalmicInspection.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(ophthalmicInspection)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="ophthalmicInspections && ophthalmicInspections.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+{
+  "name": "MedicalInsepctionRequests",
+  "fields": [
+    {
+      "fieldName": "requestNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "exported",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "abdominalInseption",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "abdominalInseption",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "ophthalmicInspection",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "ophthalmicInspection",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "persons",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "person",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "requestBiometricData",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "biometricdata",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "licenseCategory",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "licenseCategory",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "transactionType",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "transacionType",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "trafficUnits",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "trafficUnit",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "requestStatus",
+      "otherEntityRelationshipName": "medicalInsepctionRequests",
+      "relationshipName": "status",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "inspectionRequirement",
+      "otherEntityRelationshipName": "requests",
+      "relationshipName": "requirements",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200825161700",
+  "entityTableName": "medical_insepction_requests",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

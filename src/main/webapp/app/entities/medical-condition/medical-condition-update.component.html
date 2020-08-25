@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medical-condition-heading" jhiTranslate="medicalInspectionApplicationApp.medicalCondition.home.createOrEditLabel">Create or edit a Medical Condition</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalCondition.conditionNameEn" for="field_conditionNameEn">Condition Name En</label>
+                    <input type="text" class="form-control" name="conditionNameEn" id="field_conditionNameEn"
+                           formControlName="conditionNameEn"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalCondition.conditionNameAr" for="field_conditionNameAr">Condition Name Ar</label>
+                    <input type="text" class="form-control" name="conditionNameAr" id="field_conditionNameAr"
+                           formControlName="conditionNameAr"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="medicalInspectionApplicationApp.medicalCondition.inspectionType" for="field_inspectionType">Inspection Type</label>
+                    <select class="form-control" id="field_inspectionType" name="inspectionType" formControlName="inspectionTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inspectionTypeOption.id" *ngFor="let inspectionTypeOption of inspectiontypes; trackBy: trackById">{{ inspectionTypeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

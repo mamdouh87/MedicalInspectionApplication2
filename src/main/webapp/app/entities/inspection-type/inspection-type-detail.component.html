@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inspectionType">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.inspectionType.detail.title">Inspection Type</span> {{ inspectionType.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionType.nameEn">Name En</span></dt>
+                <dd>
+                    <span>{{ inspectionType.nameEn }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionType.nameAr">Name Ar</span></dt>
+                <dd>
+                    <span>{{ inspectionType.nameAr }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.inspectionType.code">Code</span></dt>
+                <dd>
+                    <span>{{ inspectionType.code }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/inspection-type', inspectionType.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

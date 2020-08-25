@@ -7,6 +7,20 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "persons": "Persons",
+        "medicalInsepctionRequests": "Medical Insepction Requests",
+        "requestBiometricData": "Request Biometric Data",
+        "abdominalInseption": "Abdominal Inseption",
+        "ophthalmicInspection": "Ophthalmic Inspection",
+        "medicalCondition": "Medical Condition",
+        "requestStatus": "Request Status",
+        "inspectionType": "Inspection Type",
+        "inspectionResult": "Inspection Result",
+        "trafficUnits": "Traffic Units",
+        "country": "Country",
+        "transactionType": "Transaction Type",
+        "licenseCategory": "License Category",
+        "inspectionRequirement": "Inspection Requirement",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

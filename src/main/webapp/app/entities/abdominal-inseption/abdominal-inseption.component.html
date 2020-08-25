@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.home.title">Abdominal Inseptions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-abdominal-inseption" [routerLink]="['/abdominal-inseption/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.home.createLabel">
+            Create a new Abdominal Inseption
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="abdominalInseptions?.length === 0">
+        <span jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.home.notFound">No abdominalInseptions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="abdominalInseptions && abdominalInseptions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="bloodGroup"><span jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.bloodGroup">Blood Group</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="doctorComments"><span jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.doctorComments">Doctor Comments</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicalConditionId"><span jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.medicalCondition">Medical Condition</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="inspectionResultId"><span jhiTranslate="medicalInspectionApplicationApp.abdominalInseption.inspectionResult">Inspection Result</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let abdominalInseption of abdominalInseptions ;trackBy: trackId">
+                    <td><a [routerLink]="['/abdominal-inseption', abdominalInseption.id, 'view']">{{ abdominalInseption.id }}</a></td>
+                    <td>{{ abdominalInseption.bloodGroup }}</td>
+                    <td>{{ abdominalInseption.doctorComments }}</td>
+                    <td>
+                        <div *ngIf="abdominalInseption.medicalConditionId">
+                            <a [routerLink]="['/medical-condition', abdominalInseption.medicalConditionId , 'view']" >{{ abdominalInseption.medicalConditionId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="abdominalInseption.inspectionResultId">
+                            <a [routerLink]="['/inspection-result', abdominalInseption.inspectionResultId , 'view']" >{{ abdominalInseption.inspectionResultId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/abdominal-inseption', abdominalInseption.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/abdominal-inseption', abdominalInseption.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(abdominalInseption)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="abdominalInseptions && abdominalInseptions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

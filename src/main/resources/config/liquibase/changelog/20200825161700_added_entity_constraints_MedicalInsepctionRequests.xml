@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity MedicalInsepctionRequests.
+    -->
+    <changeSet id="20200825161700-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="abdominal_inseption_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_abdominal_inseption_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="abdominal_inseption"/>
+
+        <addForeignKeyConstraint baseColumnNames="ophthalmic_inspection_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_ophthalmic_inspection_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ophthalmic_inspection"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="persons"/>
+
+        <addForeignKeyConstraint baseColumnNames="biometricdata_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_biometricdata_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="request_biometric_data"/>
+
+        <addForeignKeyConstraint baseColumnNames="license_category_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_license_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="license_category"/>
+
+        <addForeignKeyConstraint baseColumnNames="transacion_type_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_transacion_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="transaction_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="traffic_unit_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_traffic_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="traffic_units"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="medical_insepction_requests"
+                                 constraintName="fk_medical_insepction_requests_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="request_status"/>
+
+        <addForeignKeyConstraint baseColumnNames="medical_insepction_requests_id"
+                                 baseTableName="medical_insepction_requests_requirements"
+                                 constraintName="medical_insepction_requests_re_medical_insepction_requests_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_insepction_requests"/>
+
+        <addForeignKeyConstraint baseColumnNames="requirements_id"
+                                 baseTableName="medical_insepction_requests_requirements"
+                                 constraintName="fk_medical_insepction_requests_requirements_requirements_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inspection_requirement"/>
+        
+    </changeSet>
+</databaseChangeLog>

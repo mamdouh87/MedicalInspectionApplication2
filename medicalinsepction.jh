@@ -1,0 +1,139 @@
+
+
+entity Persons {
+	firstName String
+    lastName String
+    middleName String
+    familyName String
+    fullName String
+    birthDate LocalDate
+    nationalId String
+    passportNumber String
+}
+
+entity MedicalInsepctionRequests {
+    requestNumber String
+    exported Boolean
+}
+
+entity RequestBiometricData{
+	image ImageBlob
+}
+entity AbdominalInseption{
+    bloodGroup String 
+    doctorComments String
+}
+entity OphthalmicInspection{
+	rigthEye String
+    leftEye String
+    doctorComments String
+}
+entity MedicalCondition{
+	conditionNameEn String
+	conditionNameAr String
+}
+entity RequestStatus{
+	nameEn String
+    nameAr String
+    code String
+}
+entity InspectionType{
+	nameEn String
+    nameAr String
+    code String
+}
+entity InspectionResult{
+	nameEn String
+    nameAr String
+    code String
+}
+
+entity TrafficUnits {
+	trafficUnitNameEn String
+    trafficUnitNameAr String
+    trafficUnitCode String
+}
+
+entity Country {
+	countryNameEn String
+    countryNameAr String
+    countryCode String
+}
+entity TransactionType {
+	nameEn String
+    nameAr String
+    code String
+}
+
+entity LicenseCategory {
+	nameEn String
+    nameAr String
+    code String
+}
+
+entity InspectionRequirement{
+	nameEn String
+    nameAr String
+    code String
+    order Integer
+}
+
+relationship OneToOne   {
+	MedicalInsepctionRequests {abdominalInseption} to AbdominalInseption
+}
+relationship OneToOne   {
+	MedicalInsepctionRequests {ophthalmicInspection} to OphthalmicInspection
+}
+
+
+relationship OneToOne {
+	AbdominalInseption{medicalCondition} to MedicalCondition 
+}
+
+relationship OneToOne {
+	OphthalmicInspection{medicalCondition} to MedicalCondition 
+}
+
+relationship OneToOne {
+	MedicalInsepctionRequests{person} to Persons 
+}
+
+relationship OneToOne {
+	MedicalInsepctionRequests{biometricdata} to RequestBiometricData 
+}
+
+relationship OneToOne {
+	MedicalInsepctionRequests{licenseCategory} to LicenseCategory 
+}
+relationship OneToOne {
+	MedicalInsepctionRequests{transacionType} to TransactionType 
+}
+
+relationship OneToOne {
+	MedicalInsepctionRequests{trafficUnit} to TrafficUnits 
+}
+relationship OneToOne {
+	Persons{passportIssueCountry} to Country 
+}
+relationship OneToOne {
+	MedicalCondition{inspectionType} to InspectionType 
+}
+relationship OneToOne {
+	MedicalInsepctionRequests{status} to RequestStatus 
+}
+relationship OneToOne {
+	OphthalmicInspection{inspectionResult} to InspectionResult 
+}
+relationship OneToOne {
+	AbdominalInseption{inspectionResult} to InspectionResult 
+}
+relationship ManyToMany{
+	MedicalInsepctionRequests{requirements} to  InspectionRequirement{requests}
+}
+
+
+service all with serviceClass
+
+dto all with mapstruct
+
+paginate * with pagination

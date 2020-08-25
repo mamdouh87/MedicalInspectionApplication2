@@ -1,0 +1,24 @@
+{
+  "medicalInspectionApplicationApp": {
+    "trafficUnits": {
+      "home": {
+        "title": "Traffic Units",
+        "createLabel": "Create a new Traffic Units",
+        "createOrEditLabel": "Create or edit a Traffic Units",
+        "notFound": "No Traffic Units found"
+      },
+      "created": "A new Traffic Units is created with identifier {{ param }}",
+      "updated": "A Traffic Units is updated with identifier {{ param }}",
+      "deleted": "A Traffic Units is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Traffic Units {{ id }}?"
+      },
+      "detail": {
+        "title": "Traffic Units"
+      },
+      "trafficUnitNameEn": "Traffic Unit Name En",
+      "trafficUnitNameAr": "Traffic Unit Name Ar",
+      "trafficUnitCode": "Traffic Unit Code"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "medicalInspectionApplicationApp": {
+    "inspectionRequirement": {
+      "home": {
+        "title": "Inspection Requirements",
+        "createLabel": "Create a new Inspection Requirement",
+        "createOrEditLabel": "Create or edit a Inspection Requirement",
+        "notFound": "No Inspection Requirements found"
+      },
+      "created": "A new Inspection Requirement is created with identifier {{ param }}",
+      "updated": "A Inspection Requirement is updated with identifier {{ param }}",
+      "deleted": "A Inspection Requirement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Inspection Requirement {{ id }}?"
+      },
+      "detail": {
+        "title": "Inspection Requirement"
+      },
+      "nameEn": "Name En",
+      "nameAr": "Name Ar",
+      "code": "Code",
+      "order": "Order",
+      "requests": "Requests"
+    }
+  }
+}

@@ -47,6 +47,22 @@ public class CacheConfiguration {
             createCache(cm, com.isoft.medical.inspection.domain.User.class.getName());
             createCache(cm, com.isoft.medical.inspection.domain.Authority.class.getName());
             createCache(cm, com.isoft.medical.inspection.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.isoft.medical.inspection.domain.Persons.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.MedicalInsepctionRequests.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.MedicalInsepctionRequests.class.getName() + ".requirements");
+            createCache(cm, com.isoft.medical.inspection.domain.RequestBiometricData.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.AbdominalInseption.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.OphthalmicInspection.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.MedicalCondition.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.RequestStatus.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.InspectionType.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.InspectionResult.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.TrafficUnits.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.Country.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.TransactionType.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.LicenseCategory.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.InspectionRequirement.class.getName());
+            createCache(cm, com.isoft.medical.inspection.domain.InspectionRequirement.class.getName() + ".requests");
             // jhipster-needle-ehcache-add-entry
         };
     }

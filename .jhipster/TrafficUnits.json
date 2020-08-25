@@ -1,0 +1,29 @@
+{
+  "name": "TrafficUnits",
+  "fields": [
+    {
+      "fieldName": "trafficUnitNameEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trafficUnitNameAr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trafficUnitCode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200825162500",
+  "entityTableName": "traffic_units",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

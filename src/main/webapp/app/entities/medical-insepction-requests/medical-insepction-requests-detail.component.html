@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medicalInsepctionRequests">
+            <h2><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.detail.title">Medical Insepction Requests</span> {{ medicalInsepctionRequests.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.requestNumber">Request Number</span></dt>
+                <dd>
+                    <span>{{ medicalInsepctionRequests.requestNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.exported">Exported</span></dt>
+                <dd>
+                    <span>{{ medicalInsepctionRequests.exported }}</span>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.abdominalInseption">Abdominal Inseption</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.abdominalInseptionId">
+                        <a [routerLink]="['/abdominal-inseption', medicalInsepctionRequests.abdominalInseptionId, 'view']">{{ medicalInsepctionRequests.abdominalInseptionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.ophthalmicInspection">Ophthalmic Inspection</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.ophthalmicInspectionId">
+                        <a [routerLink]="['/ophthalmic-inspection', medicalInsepctionRequests.ophthalmicInspectionId, 'view']">{{ medicalInsepctionRequests.ophthalmicInspectionId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.person">Person</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.personId">
+                        <a [routerLink]="['/persons', medicalInsepctionRequests.personId, 'view']">{{ medicalInsepctionRequests.personId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.biometricdata">Biometricdata</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.biometricdataId">
+                        <a [routerLink]="['/request-biometric-data', medicalInsepctionRequests.biometricdataId, 'view']">{{ medicalInsepctionRequests.biometricdataId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.licenseCategory">License Category</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.licenseCategoryId">
+                        <a [routerLink]="['/license-category', medicalInsepctionRequests.licenseCategoryId, 'view']">{{ medicalInsepctionRequests.licenseCategoryId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.transacionType">Transacion Type</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.transacionTypeId">
+                        <a [routerLink]="['/transaction-type', medicalInsepctionRequests.transacionTypeId, 'view']">{{ medicalInsepctionRequests.transacionTypeId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.trafficUnit">Traffic Unit</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.trafficUnitId">
+                        <a [routerLink]="['/traffic-units', medicalInsepctionRequests.trafficUnitId, 'view']">{{ medicalInsepctionRequests.trafficUnitId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.status">Status</span></dt>
+                <dd>
+                    <div *ngIf="medicalInsepctionRequests.statusId">
+                        <a [routerLink]="['/request-status', medicalInsepctionRequests.statusId, 'view']">{{ medicalInsepctionRequests.statusId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="medicalInspectionApplicationApp.medicalInsepctionRequests.requirements">Requirements</span></dt>
+                <dd>
+                    <span *ngFor="let requirements of medicalInsepctionRequests.requirements; let last = last">
+                        <a [routerLink]="['/inspection-requirement', requirements?.id, 'view']">{{ requirements.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medical-insepction-requests', medicalInsepctionRequests.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

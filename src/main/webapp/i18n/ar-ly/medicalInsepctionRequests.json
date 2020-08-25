@@ -1,0 +1,32 @@
+{
+  "medicalInspectionApplicationApp": {
+    "medicalInsepctionRequests": {
+      "home": {
+        "title": "Medical Insepction Requests",
+        "createLabel": "Create a new Medical Insepction Requests",
+        "createOrEditLabel": "Create or edit a Medical Insepction Requests",
+        "notFound": "No Medical Insepction Requests found"
+      },
+      "created": "A new Medical Insepction Requests is created with identifier {{ param }}",
+      "updated": "A Medical Insepction Requests is updated with identifier {{ param }}",
+      "deleted": "A Medical Insepction Requests is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Insepction Requests {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Insepction Requests"
+      },
+      "requestNumber": "Request Number",
+      "exported": "Exported",
+      "abdominalInseption": "Abdominal Inseption",
+      "ophthalmicInspection": "Ophthalmic Inspection",
+      "person": "Person",
+      "biometricdata": "Biometricdata",
+      "licenseCategory": "License Category",
+      "transacionType": "Transacion Type",
+      "trafficUnit": "Traffic Unit",
+      "status": "Status",
+      "requirements": "Requirements"
+    }
+  }
+}
