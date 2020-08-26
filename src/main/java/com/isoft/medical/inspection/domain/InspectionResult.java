@@ -1,11 +1,9 @@
 package com.isoft.medical.inspection.domain;
 
+import java.io.Serializable;
+import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
-import java.io.Serializable;
 
 /**
  * A InspectionResult.
@@ -13,8 +11,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "inspection_result")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class InspectionResult implements Serializable {
-
+public class InspectionResult extends AbstractAuditingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -78,6 +75,7 @@ public class InspectionResult implements Serializable {
     public void setCode(String code) {
         this.code = code;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

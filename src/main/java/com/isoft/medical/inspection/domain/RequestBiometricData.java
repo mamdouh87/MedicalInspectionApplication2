@@ -1,11 +1,9 @@
 package com.isoft.medical.inspection.domain;
 
+import java.io.Serializable;
+import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
-import java.io.Serializable;
 
 /**
  * A RequestBiometricData.
@@ -13,8 +11,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "request_biometric_data")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class RequestBiometricData implements Serializable {
-
+public class RequestBiometricData extends AbstractAuditingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -63,6 +60,7 @@ public class RequestBiometricData implements Serializable {
     public void setImageContentType(String imageContentType) {
         this.imageContentType = imageContentType;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

@@ -1,14 +1,12 @@
 package com.isoft.medical.inspection.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A InspectionRequirement.
@@ -16,8 +14,7 @@ import java.util.Set;
 @Entity
 @Table(name = "inspection_requirement")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class InspectionRequirement implements Serializable {
-
+public class InspectionRequirement extends AbstractAuditingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -34,7 +31,7 @@ public class InspectionRequirement implements Serializable {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "jhi_order")
+    @Column(name = "order")
     private Integer order;
 
     @ManyToMany(mappedBy = "requirements")
@@ -127,6 +124,7 @@ public class InspectionRequirement implements Serializable {
     public void setRequests(Set<MedicalInsepctionRequests> medicalInsepctionRequests) {
         this.requests = medicalInsepctionRequests;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override

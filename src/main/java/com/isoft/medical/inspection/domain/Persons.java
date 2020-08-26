@@ -1,12 +1,10 @@
 package com.isoft.medical.inspection.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-
 import java.io.Serializable;
 import java.time.LocalDate;
+import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A Persons.
@@ -14,8 +12,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "persons")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Persons implements Serializable {
-
+public class Persons extends AbstractAuditingEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -176,6 +173,7 @@ public class Persons implements Serializable {
     public void setPassportIssueCountry(Country country) {
         this.passportIssueCountry = country;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
